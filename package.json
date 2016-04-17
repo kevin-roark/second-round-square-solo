@@ -1,0 +1,13 @@
+{
+  "name": "second-round-square-solo",
+  "version": "1.0.0",
+  "description": "permuted language poems",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevin-roark/second-round-square-solo.git"
+  },
+  "author": "kevin roark jr x carmichael payamps",
+  "dependencies": {
+    "js-combinatorics": "^0.5.1"
+  }
+}
