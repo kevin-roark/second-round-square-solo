@@ -27,7 +27,7 @@
   }
 
   function videos() {
-    var baseURL = 'media/';
+    var baseURL = 'media/thumbnails/';
     var container = document.querySelector('.art-container');
     var containerDelay = 3000;
 
