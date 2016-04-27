@@ -7,6 +7,7 @@ html, body {
 .art-info {
   position: absolute;
   top: 10px; right: 15px;
+  max-width: 630px;
   color: rgb(44, 44, 44);
 }
 
@@ -25,6 +26,7 @@ html, body {
   .about-artist {
     float: left;
     margin-top: 68px;
+    margin-left: 40px;
     font-family: 'Times New Roman', serif;
     font-size: 20px;
   }
@@ -46,3 +48,28 @@ html, body {
       padding: 5px;
       text-align: right;
     }
+
+
+.video-row {
+  margin: 50px 5px;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+  .video-sound-button {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    text-align: right;
+    cursor: pointer;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .thumbnail-video {
+    display: inline-block;
+    vertical-align: middle;
+    width: 125px;
+    margin: 0 0 0 15px;
+  }

@@ -7,6 +7,9 @@
     "url": "https://github.com/kevin-roark/second-round-square-solo.git"
   },
   "author": "kevin roark jr x carmichael payamps",
+  "scripts": {
+    "build": "browserify js/home.js -o js/home-build.js"
+  },
   "dependencies": {
     "js-combinatorics": "^0.5.1"
   }
