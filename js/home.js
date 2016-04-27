@@ -4,7 +4,7 @@
   var Combinatorics = require('js-combinatorics');
 
   setTimeout(text, 4000);
-  videos();
+  setTimeout(videos, 2000);
 
   function text() {
     var el = document.querySelector('.art-title');
@@ -29,6 +29,7 @@
   function videos() {
     var baseURL = 'media/';
     var container = document.querySelector('.art-container');
+    var containerDelay = 3000;
 
     var videoData = [
       {title: 'One', count: 1, mediaBase: '1'},
@@ -38,16 +39,20 @@
       {title: 'Five', count: 5, mediaBase: '5'},
       {title: 'Six', count: 6, mediaBase: '6'},
       {title: 'Seven', count: 7, mediaBase: '7'},
-      //{title: 'Eight', count: 8, mediaBase: '8'},
-      // {title: 'Nine', count: 9, mediaBase: '9'},
-      // {title: 'Ten', count: 10, mediaBase: '10'},
-      // {title: 'Eleven', count: 11, mediaBase: '11'}
+      {title: 'Eight', count: 8, mediaBase: '8'},
+      {title: 'Nine', count: 9, mediaBase: '9'},
+      {title: 'Ten', count: 10, mediaBase: '10'},
+      {title: 'Eleven', count: 11, mediaBase: '11'}
     ];
 
     videoData.forEach(function(videoDatum) {
       videoDatum.media = getVideoPaths(videoDatum);
       renderVideoDatum(videoDatum);
     });
+
+    setTimeout(function() {
+      container.style.opacity = 1.0;
+    }, containerDelay);
 
     function renderVideoDatum(videoDatum) {
       var row = document.createElement('div');
@@ -79,8 +84,7 @@
       });
 
       updateSoundState();
-
-      setTimeout(playPermutedVideos, 1000 * videoDatum.count);
+      setTimeout(playPermutedVideos, containerDelay + 1666 * (videoDatum.count - 1));
 
       function playPermutedVideos() {
         var permutations = Combinatorics.permutation(videos);
@@ -129,8 +133,7 @@
         var path = baseURL + videoDatum.mediaBase + '-' + (i+1) + '.mp4';
 
         // test code baby
-        i = i % 7;
-        path = baseURL + '7-' + (i+1) + '.mp4';
+        path = baseURL + '7-' + ((i%7) + 1) + '.mp4';
 
         paths.push(path);
       }

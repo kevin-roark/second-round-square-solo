@@ -50,6 +50,11 @@ html, body {
     }
 
 
+.art-container {
+  opacity: 0;
+  transition: all 1s;
+}
+
 .video-row {
   margin: 40px 5px;
   overflow-y: hidden;
