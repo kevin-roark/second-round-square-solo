@@ -64,12 +64,17 @@
       };
       row.appendChild(soundButton);
 
+      var videoContainer = document.createElement('a');
+      videoContainer.className = 'video-thumbnail-container';
+      videoContainer.href = '/' + videoDatum.title;
+      row.appendChild(videoContainer);
+
       var videos = [];
       videoDatum.media.forEach(function(videoPath) {
         var video = document.createElement('video');
-        video.className = 'thumbnail-video';
+        video.className = 'video-thumbnail';
         video.src = videoPath;
-        row.appendChild(video);
+        videoContainer.appendChild(video);
 
         videos.push(video);
       });
