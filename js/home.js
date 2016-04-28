@@ -4,7 +4,7 @@
   var Combinatorics = require('js-combinatorics');
 
   setTimeout(text, 4000);
-  setTimeout(videos, 500);
+  setTimeout(videos, 2000);
 
   function text() {
     var el = document.querySelector('.art-title');
