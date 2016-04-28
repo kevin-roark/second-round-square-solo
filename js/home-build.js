@@ -5,7 +5,7 @@
   var Combinatorics = require('js-combinatorics');
 
   setTimeout(text, 4000);
-  setTimeout(videos, 2000);
+  setTimeout(videos, 500);
 
   function text() {
     var el = document.querySelector('.art-title');
@@ -33,17 +33,20 @@
     var containerDelay = 3000;
 
     var videoData = [
-      {title: 'One', count: 1, mediaBase: '1'},
-      {title: 'Two', count: 2, mediaBase: '2'},
-      {title: 'Three', count: 3, mediaBase: '3'},
-      {title: 'Four', count: 4, mediaBase: '4'},
-      {title: 'Five', count: 5, mediaBase: '5'},
-      {title: 'Six', count: 6, mediaBase: '6'},
-      {title: 'Seven', count: 7, mediaBase: '7'},
-      {title: 'Eight', count: 8, mediaBase: '8'},
-      {title: 'Nine', count: 9, mediaBase: '9'},
-      {title: 'Ten', count: 10, mediaBase: '10'},
-      {title: 'Eleven', count: 11, mediaBase: '11'}
+      {title: 'One', count: 1, mediaBase: '1/'},
+      {title: 'Two', count: 2, mediaBase: '2/'},
+      {title: 'Three', count: 3, mediaBase: '3/'},
+      {title: 'Four', count: 4, mediaBase: '4/'},
+      {title: 'Five', count: 5, mediaBase: '5/'},
+      {title: 'Six', count: 6, mediaBase: '6/'},
+      {title: 'Seven', count: 7, mediaBase: '7/'},
+      {title: 'Eight', count: 8, mediaBase: '8/'},
+      {title: 'Nine', count: 9, mediaBase: '9/'},
+      {title: 'Ten', count: 10, mediaBase: '10/'},
+      {title: 'Eleven', count: 11, mediaBase: '11/'},
+      {title: 'Twelve', count: 12, mediaBase: '12/'},
+      {title: 'Thirteen', count: 13, mediaBase: '13/'},
+      {title: 'Fourteen', count: 14, mediaBase: '14/'}
     ];
 
     videoData.forEach(function(videoDatum) {
@@ -131,10 +134,12 @@
     function getVideoPaths(videoDatum) {
       var paths = [];
       for (var i = 0; i < videoDatum.count; i++) {
-        var path = baseURL + videoDatum.mediaBase + '-' + (i+1) + '.mp4';
+        var path = baseURL + videoDatum.mediaBase + i + '.mp4';
 
         // test code baby
-        path = baseURL + '7-' + ((i%7) + 1) + '.mp4';
+        if (videoDatum.count < 3) {
+          path = baseURL + '3/' + i + '.mp4';
+        }
 
         paths.push(path);
       }
