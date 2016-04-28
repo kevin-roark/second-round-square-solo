@@ -56,7 +56,7 @@ html, body {
 }
 
 .video-row {
-  margin: 12px 5px;
+  margin: 7px 5px;
   overflow-y: hidden;
   white-space: nowrap;
 }
@@ -67,8 +67,8 @@ html, body {
     width: 60px;
     text-align: right;
     cursor: pointer;
-    font-family: 'Helvetica', sans-serif;
-    font-size: 16px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 17px;
     text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
   }
     .video-sound-button:hover, .video-sound-button:focus {
@@ -79,18 +79,32 @@ html, body {
     display: inline-block;
     transition: all 400ms;
   }
-    .video-thumbnail-container:hover, .video-thumbnail-container:focus {
-      transform: scale(1.02) skewX(-2deg);
-    }
     .video-thumbnail-container:hover video, .video-thumbnail-container:focus video {
       box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+      transform: scale(1.02) skewX(-2deg) skewY(1deg);
     }
 
   .video-thumbnail {
     display: inline-block;
     vertical-align: middle;
     width: 125px;
-    margin: 5px 0 5px 15px;
+    margin: 10px 0 10px 15px;
+    transition: transform 400ms;
+  }
+
+.not-chrome-message {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  box-sizing: border-box;
+  padding: 100px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgb(30, 30, 30);
+  font-family: 'Helvetica', sans-serif;
+  font-size: 64px;
+  text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.05);
+}
+  .not-chrome-message a {
+    color: inherit;
+    text-decoration: underline;
   }
 
 @media

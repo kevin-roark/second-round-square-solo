@@ -4,7 +4,20 @@
   var Combinatorics = require('js-combinatorics');
 
   setTimeout(text, 4000);
-  setTimeout(videos, 2000);
+
+  var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if (isChrome) {
+    setTimeout(videos, 2000);
+  }
+  else {
+    var notChromeEl = document.createElement('div');
+    notChromeEl.className = 'not-chrome-message';
+    notChromeEl.innerHTML =
+      "Please visit <i>Second Round Square Solo</i> with Google Chrome on your computer. You'll love it! " +
+      'Thanks, <a href="http://www.carmichael.xyz/">Carmichael</a>.';
+
+    document.body.appendChild(notChromeEl);
+  }
 
   function text() {
     var el = document.querySelector('.art-title');
