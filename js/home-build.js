@@ -90,7 +90,7 @@
 
       var videoContainer = document.createElement('a');
       videoContainer.className = 'video-thumbnail-container';
-      videoContainer.href = '/' + videoDatum.title;
+      videoContainer.href = '/video/' + videoDatum.title;
       row.appendChild(videoContainer);
 
       var videos = [];

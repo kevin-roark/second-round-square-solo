@@ -3,13 +3,16 @@ module.exports = function (mediaConfig) {
   var frampton = require('../frampton/dist/web-frampton');
   var Combinatorics = require('js-combinatorics');
 
-  var renderer = new frampton.Renderer({
-    mediaConfig: mediaConfig
+  var renderer = new frampton.WebRenderer({
+    mediaConfig: mediaConfig,
+    videoSourceMaker: function(filename) {
+      return '/' + mediaConfig.path + '/' +  filename;
+    }
   });
 
   var videoPermutation = Combinatorics.permutation(mediaConfig.videos);
 
-  scheuduleOrdering(videoPermutation.next(), 2000);
+  scheuduleOrdering(videoPermutation.next(), 2500);
 
   function scheuduleOrdering(ordering, delay) {
     var segments = [];
@@ -19,7 +22,7 @@ module.exports = function (mediaConfig) {
       segments.push(segment);
     });
 
-    var sequencedSegment = new frampton.SequencedSegement({
+    var sequencedSegment = new frampton.SequencedSegment({
       segments: segments,
       onStart: function() {
         var nextOrdering = videoPermutation.next();
