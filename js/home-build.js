@@ -46,25 +46,28 @@
     var containerDelay = 3000;
 
     var videoData = [
-      {title: 'One', count: 1, mediaBase: '1/'},
-      {title: 'Two', count: 2, mediaBase: '2/'},
-      {title: 'Three', count: 3, mediaBase: '3/'},
-      {title: 'Four', count: 4, mediaBase: '4/'},
-      {title: 'Five', count: 5, mediaBase: '5/'},
-      {title: 'Six', count: 6, mediaBase: '6/'},
-      {title: 'Seven', count: 7, mediaBase: '7/'},
-      {title: 'Eight', count: 8, mediaBase: '8/'},
-      {title: 'Nine', count: 9, mediaBase: '9/'},
-      {title: 'Ten', count: 10, mediaBase: '10/'},
-      {title: 'Eleven', count: 11, mediaBase: '11/'},
-      {title: 'Twelve', count: 12, mediaBase: '12/'},
-      {title: 'Thirteen', count: 13, mediaBase: '13/'},
-      {title: 'Fourteen', count: 14, mediaBase: '14/'}
+      {title: 'one', count: 1, mediaBase: '1/'},
+      {title: 'two', count: 2, mediaBase: '2/'},
+      {title: 'three', count: 3, mediaBase: '3/'},
+      {title: 'four', count: 4, mediaBase: '4/'},
+      {title: 'five', count: 5, mediaBase: '5/'},
+      {title: 'six', count: 6, mediaBase: '6/'},
+      {title: 'seven', count: 7, mediaBase: '7/'},
+      {title: 'eight', count: 8, mediaBase: '8/'},
+      {title: 'nine', count: 9, mediaBase: '9/'},
+      {title: 'ten', count: 10, mediaBase: '10/'},
+      {title: 'eleven', count: 11, mediaBase: '11/'},
+      {title: 'twelve', count: 12, mediaBase: '12/'},
+      {title: 'thirteen', count: 13, mediaBase: '13/'},
+      {title: 'fourteen', count: 14, mediaBase: '14/'},
+      {title: 'fifteen', count: 15, mediaBase: '15/'},
     ];
 
     videoData.forEach(function(videoDatum) {
       videoDatum.media = getVideoPaths(videoDatum);
-      renderVideoDatum(videoDatum);
+      setTimeout(function() {
+        renderVideoDatum(videoDatum);
+      }, 200 * (videoDatum.count - 1));
     });
 
     setTimeout(function() {
@@ -101,7 +104,7 @@
       });
 
       updateSoundState();
-      setTimeout(playPermutedVideos, containerDelay + 1666 * (videoDatum.count - 1));
+      setTimeout(playPermutedVideos, containerDelay + 1466 * (videoDatum.count - 1));
 
       function playPermutedVideos() {
         var permutations = Combinatorics.permutation(videos);
