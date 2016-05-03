@@ -108,17 +108,17 @@ html, body {
   }
 
 @media
-only screen and (max-width: 450px),
-only screen and (-webkit-min-device-pixel-ratio: 2)      and (max-width: 900px),
-only screen and (   min--moz-device-pixel-ratio: 2)      and (max-width: 900px),
-only screen and (     -o-min-device-pixel-ratio: 2/1)    and (max-width: 900px),
-only screen and (        min-device-pixel-ratio: 2)      and (max-width: 900px),
-only screen and (                min-resolution: 192dpi) and (max-width: 900px),
-only screen and (                min-resolution: 2dppx)  and (max-width: 900px) {
+only screen and (max-width: 560px),
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (max-width: 1120px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (max-width: 1120px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (max-width: 1120px),
+only screen and (        min-device-pixel-ratio: 2)      and (max-width: 1120px),
+only screen and (                min-resolution: 192dpi) and (max-width: 1120px),
+only screen and (                min-resolution: 2dppx)  and (max-width: 1120px) {
   .art-info {
     position: relative;
     top: 0; left: 0;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-top: 10px;
   }
   .about-artist, .social {

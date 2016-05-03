@@ -45,8 +45,6 @@
     var containerDelay = 3000;
 
     var videoData = [
-      {title: 'one', count: 1, mediaBase: '1/'},
-      {title: 'two', count: 2, mediaBase: '2/'},
       {title: 'three', count: 3, mediaBase: '3/'},
       {title: 'four', count: 4, mediaBase: '4/'},
       {title: 'five', count: 5, mediaBase: '5/'},
