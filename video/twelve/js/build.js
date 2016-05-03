@@ -4024,7 +4024,7 @@ module.exports = function (mediaConfig) {
       }
 
       ctx.strokeStyle = "#fff";
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 3;
 
       ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
       ctx.shadowBlur = 3;
@@ -4073,7 +4073,7 @@ module.exports={
     "seven one side wins six",
     "peg less body ring",
     "algebraic kind open bird",
-    "pitch drink office",
+    "pitch drunk office",
     "bob frying dress",
     "atom figures to lose",
     "montage of a tin",

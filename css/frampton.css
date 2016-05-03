@@ -55,6 +55,8 @@ body {
   font-family: Roboto Mono, Menlo, Courier New, monospace;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.75);
   z-index: 1;
+
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -70,5 +72,5 @@ body {
 }
 
 .video-symbol-canvas {
-  left: 5px; bottom: 8px;
+  left: 5px; bottom: 5px;
 }

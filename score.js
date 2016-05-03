@@ -87,7 +87,7 @@ module.exports = function (mediaConfig) {
       }
 
       ctx.strokeStyle = "#fff";
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 3;
 
       ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
       ctx.shadowBlur = 3;
