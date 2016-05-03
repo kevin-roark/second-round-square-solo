@@ -3940,6 +3940,28 @@ module.exports = function (mediaConfig) {
   var frampton = require('../frampton/dist/web-frampton');
   var Combinatorics = require('js-combinatorics');
 
+  var indices = [];
+  for (var i = 0; i < mediaConfig.videos.length; i++) {
+    indices.push(i);
+  }
+
+  var indexPermutation = Combinatorics.permutation(indices);
+  var currentPermutationIndex = 0;
+
+  var currentWordEl = document.createElement('div');
+  currentWordEl.className = 'current-word';
+  document.body.appendChild(currentWordEl);
+
+  var counterEl = document.createElement('div');
+  counterEl.className = 'permutation-counter';
+  document.body.appendChild(counterEl);
+
+  var symbolCanvas = document.createElement('canvas');
+  symbolCanvas.width = window.innerWidth;
+  symbolCanvas.height = 35;
+  symbolCanvas.className = 'video-symbol-canvas';
+  document.body.appendChild(symbolCanvas);
+
   var renderer = new frampton.WebRenderer({
     mediaConfig: mediaConfig,
     videoSourceMaker: function(filename) {
@@ -3947,25 +3969,35 @@ module.exports = function (mediaConfig) {
     }
   });
 
-  var videoPermutation = Combinatorics.permutation(mediaConfig.videos);
-
-  scheuduleOrdering(videoPermutation.next(), 2500);
+  scheuduleOrdering(indexPermutation.next(), 2500);
 
   function scheuduleOrdering(ordering, delay) {
     var segments = [];
 
-    ordering.forEach(function(video) {
+    ordering.forEach(function(index) {
+      var video = mediaConfig.videos[index];
       var segment = new frampton.VideoSegment(video);
+
+      segment.onStart = function() {
+        currentWordEl.textContent = mediaConfig.words[index];
+        updateCanvas(index);
+      };
+
       segments.push(segment);
     });
 
     var sequencedSegment = new frampton.SequencedSegment({
       segments: segments,
       onStart: function() {
-        var nextOrdering = videoPermutation.next();
+        counterEl.textContent = (currentPermutationIndex+1) + ' / ' + indexPermutation.length;
+
+        var nextOrdering = indexPermutation.next();
+        currentPermutationIndex += 1;
+
         if (!nextOrdering) {
-          videoPermutation = Combinatorics.permutation(mediaConfig.videos);
-          nextOrdering = videoPermutation.next();
+          indexPermutation = Combinatorics.permutation(indices);
+          nextOrdering = indexPermutation.next();
+          currentPermutationIndex = 0;
         }
 
         scheuduleOrdering(nextOrdering, sequencedSegment.msDuration());
@@ -3974,10 +4006,294 @@ module.exports = function (mediaConfig) {
 
     renderer.scheduleSegmentRender(sequencedSegment, delay);
   }
+
+  function updateCanvas(index) {
+    var ctx = symbolCanvas.getContext('2d');
+    ctx.clearRect(0, 0, symbolCanvas.width, symbolCanvas.height);
+
+    for (var i = 0; i < indices.length; i++) {
+      drawShape(indices.length, 15 + 40 * i, 20, 15, i === index);
+    }
+
+    function drawShape(numberOfSides, x, y, size, highlight) {
+      ctx.beginPath();
+      ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+
+      for (var i = 1; i <= numberOfSides; i += 1) {
+        ctx.lineTo(x + size * Math.cos(i * 2 * Math.PI / numberOfSides), y + size * Math.sin(i * 2 * Math.PI / numberOfSides));
+      }
+
+      ctx.strokeStyle = "#fff";
+      ctx.lineWidth = 2;
+
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+      ctx.shadowBlur = 3;
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
+
+      if (highlight) {
+        ctx.fillStyle = ctx.shadowColor = randomBrightColor();
+        ctx.fill();
+      }
+      else {
+        ctx.stroke();
+      }
+    }
+
+    function randomBrightColor() {
+      var key = Math.floor(Math.random() * 6);
+
+      if (key === 0)
+        return "rgb(" + "0,255," + v() + ")";
+      else if (key === 1)
+        return "rgb(" + "0," + v() + ",255)";
+      else if (key === 2)
+        return "rgb(" + "255, 0," + v() + ")";
+      else if (key === 3)
+        return "rgb(" + "255," + v() + ",0)";
+      else if (key === 4)
+        return "rgb(" + v() + ",255,0)";
+      else
+        return "rgb(" + v() + ",0,255)";
+
+      function v() {
+        return Math.floor(Math.random() * 256);
+      }
+    }
+  }
 };
 
 },{"../frampton/dist/web-frampton":22,"js-combinatorics":25}],27:[function(require,module,exports){
-module.exports={"path":"media/big/13","videos":[{"filename":"0.mp4","duration":2.172,"volumeInfo":{"mean":-29.8,"max":-8.4},"tags":[]},{"filename":"1.mp4","duration":2.57,"volumeInfo":{"mean":-32.2,"max":-11},"tags":[]},{"filename":"2.mp4","duration":2.186,"volumeInfo":{"mean":-30.7,"max":-9.4},"tags":[]},{"filename":"3.mp4","duration":2.536,"volumeInfo":{"mean":-29.4,"max":-10},"tags":[]},{"filename":"4.mp4","duration":3.613,"volumeInfo":{"mean":-30.4,"max":-10.8},"tags":[]},{"filename":"5.mp4","duration":2.629,"volumeInfo":{"mean":-32,"max":-9.8},"tags":[]},{"filename":"6.mp4","duration":2.513,"volumeInfo":{"mean":-30.5,"max":-9.5},"tags":[]},{"filename":"7.mp4","duration":2.746,"volumeInfo":{"mean":-28.4,"max":-8.8},"tags":[]},{"filename":"8.mp4","duration":2.813,"volumeInfo":{"mean":-30,"max":-10.3},"tags":[]},{"filename":"9.mp4","duration":3.504,"volumeInfo":{"mean":-31.7,"max":-8.5},"tags":[]},{"filename":"10.mp4","duration":2.196,"volumeInfo":{"mean":-32.8,"max":-10.7},"tags":[]},{"filename":"11.mp4","duration":2.737,"volumeInfo":{"mean":-31.3,"max":-12.1},"tags":[]},{"filename":"12.mp4","duration":3.22,"volumeInfo":{"mean":-29.8,"max":-8.4},"tags":[]}],"audio":[{"filename":"0.mp3","duration":2.712,"volumeInfo":{"mean":-30.8,"max":-8.4},"tags":[]},{"filename":"1.mp3","duration":3.12,"volumeInfo":{"mean":-33.1,"max":-11.2},"tags":[]},{"filename":"10.mp3","duration":2.736,"volumeInfo":{"mean":-33.9,"max":-11.4},"tags":[]},{"filename":"11.mp3","duration":3.264,"volumeInfo":{"mean":-32.2,"max":-12.3},"tags":[]},{"filename":"12.mp3","duration":3.504,"volumeInfo":{"mean":-30.3,"max":-8.8},"tags":[]},{"filename":"2.mp3","duration":2.712,"volumeInfo":{"mean":-31.7,"max":-9.6},"tags":[]},{"filename":"3.mp3","duration":3.072,"volumeInfo":{"mean":-30.4,"max":-10.2},"tags":[]},{"filename":"4.mp3","duration":4.152,"volumeInfo":{"mean":-31.2,"max":-11.1},"tags":[]},{"filename":"5.mp3","duration":3.168,"volumeInfo":{"mean":-32.9,"max":-10.2},"tags":[]},{"filename":"6.mp3","duration":3.048,"volumeInfo":{"mean":-31.5,"max":-9.7},"tags":[]},{"filename":"7.mp3","duration":3.288,"volumeInfo":{"mean":-29.4,"max":-8.9},"tags":[]},{"filename":"8.mp3","duration":3.36,"volumeInfo":{"mean":-30.9,"max":-10.4},"tags":[]},{"filename":"9.mp3","duration":4.032,"volumeInfo":{"mean":-32.2,"max":-8.9},"tags":[]}],"frames":[]}
+module.exports={
+  "path": "media/big/13",
+  "words": [
+    "fan understudy fan",
+    "dot evasion tick",
+    "vane utter casting",
+    "arrow queen dice",
+    "core nine when deed",
+    "might am crimp",
+    "tack tawn append",
+    "tine board gasify",
+    "in stays iambs off",
+    "at adverse own not",
+    "ought numbers what",
+    "atone ray tip when",
+    "meant charge butte dine"
+  ],
+  "videos": [{
+    "filename": "0.mp4",
+    "duration": 2.172,
+    "volumeInfo": {
+      "mean": -29.8,
+      "max": -8.4
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp4",
+    "duration": 2.57,
+    "volumeInfo": {
+      "mean": -32.2,
+      "max": -11
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp4",
+    "duration": 2.186,
+    "volumeInfo": {
+      "mean": -30.7,
+      "max": -9.4
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp4",
+    "duration": 2.536,
+    "volumeInfo": {
+      "mean": -29.4,
+      "max": -10
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp4",
+    "duration": 3.613,
+    "volumeInfo": {
+      "mean": -30.4,
+      "max": -10.8
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp4",
+    "duration": 2.629,
+    "volumeInfo": {
+      "mean": -32,
+      "max": -9.8
+    },
+    "tags": []
+  }, {
+    "filename": "6.mp4",
+    "duration": 2.513,
+    "volumeInfo": {
+      "mean": -30.5,
+      "max": -9.5
+    },
+    "tags": []
+  }, {
+    "filename": "7.mp4",
+    "duration": 2.746,
+    "volumeInfo": {
+      "mean": -28.4,
+      "max": -8.8
+    },
+    "tags": []
+  }, {
+    "filename": "8.mp4",
+    "duration": 2.813,
+    "volumeInfo": {
+      "mean": -30,
+      "max": -10.3
+    },
+    "tags": []
+  }, {
+    "filename": "9.mp4",
+    "duration": 3.504,
+    "volumeInfo": {
+      "mean": -31.7,
+      "max": -8.5
+    },
+    "tags": []
+  }, {
+    "filename": "10.mp4",
+    "duration": 2.196,
+    "volumeInfo": {
+      "mean": -32.8,
+      "max": -10.7
+    },
+    "tags": []
+  }, {
+    "filename": "11.mp4",
+    "duration": 2.737,
+    "volumeInfo": {
+      "mean": -31.3,
+      "max": -12.1
+    },
+    "tags": []
+  }, {
+    "filename": "12.mp4",
+    "duration": 3.22,
+    "volumeInfo": {
+      "mean": -29.8,
+      "max": -8.4
+    },
+    "tags": []
+  }],
+  "audio": [{
+    "filename": "0.mp3",
+    "duration": 2.712,
+    "volumeInfo": {
+      "mean": -30.8,
+      "max": -8.4
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp3",
+    "duration": 3.12,
+    "volumeInfo": {
+      "mean": -33.1,
+      "max": -11.2
+    },
+    "tags": []
+  }, {
+    "filename": "10.mp3",
+    "duration": 2.736,
+    "volumeInfo": {
+      "mean": -33.9,
+      "max": -11.4
+    },
+    "tags": []
+  }, {
+    "filename": "11.mp3",
+    "duration": 3.264,
+    "volumeInfo": {
+      "mean": -32.2,
+      "max": -12.3
+    },
+    "tags": []
+  }, {
+    "filename": "12.mp3",
+    "duration": 3.504,
+    "volumeInfo": {
+      "mean": -30.3,
+      "max": -8.8
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp3",
+    "duration": 2.712,
+    "volumeInfo": {
+      "mean": -31.7,
+      "max": -9.6
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp3",
+    "duration": 3.072,
+    "volumeInfo": {
+      "mean": -30.4,
+      "max": -10.2
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp3",
+    "duration": 4.152,
+    "volumeInfo": {
+      "mean": -31.2,
+      "max": -11.1
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp3",
+    "duration": 3.168,
+    "volumeInfo": {
+      "mean": -32.9,
+      "max": -10.2
+    },
+    "tags": []
+  }, {
+    "filename": "6.mp3",
+    "duration": 3.048,
+    "volumeInfo": {
+      "mean": -31.5,
+      "max": -9.7
+    },
+    "tags": []
+  }, {
+    "filename": "7.mp3",
+    "duration": 3.288,
+    "volumeInfo": {
+      "mean": -29.4,
+      "max": -8.9
+    },
+    "tags": []
+  }, {
+    "filename": "8.mp3",
+    "duration": 3.36,
+    "volumeInfo": {
+      "mean": -30.9,
+      "max": -10.4
+    },
+    "tags": []
+  }, {
+    "filename": "9.mp3",
+    "duration": 4.032,
+    "volumeInfo": {
+      "mean": -32.2,
+      "max": -8.9
+    },
+    "tags": []
+  }],
+  "frames": []
+}
+
 },{}],28:[function(require,module,exports){
 
 (function() {

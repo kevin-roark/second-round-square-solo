@@ -48,3 +48,27 @@ body {
     color: inherit;
     text-decoration: underline;
   }
+
+.permutation-counter, .current-word, .video-symbol-canvas {
+  position: fixed;
+  color: white;
+  font-family: Roboto Mono, Menlo, Courier New, monospace;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.75);
+  z-index: 1;
+  user-select: none;
+}
+
+.permutation-counter {
+  right: 15px; bottom: 8px;
+  font-size: 28px;
+}
+
+.current-word {
+  left: 0; width: 100%; text-align: center;
+  bottom: 8%;
+  font-size: 44px;
+}
+
+.video-symbol-canvas {
+  left: 5px; bottom: 8px;
+}

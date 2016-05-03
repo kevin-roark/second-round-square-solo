@@ -1,1 +1,161 @@
-{"path":"media/big/9","videos":[{"filename":"0.mp4","duration":1.622,"volumeInfo":{"mean":-23.2,"max":-8.7},"tags":[]},{"filename":"1.mp4","duration":1.087,"volumeInfo":{"mean":-23.4,"max":-8.5},"tags":[]},{"filename":"2.mp4","duration":1.729,"volumeInfo":{"mean":-23.6,"max":-8.3},"tags":[]},{"filename":"3.mp4","duration":0.835,"volumeInfo":{"mean":-23.5,"max":-8.9},"tags":[]},{"filename":"4.mp4","duration":1.485,"volumeInfo":{"mean":-26,"max":-8.7},"tags":[]},{"filename":"5.mp4","duration":2.47,"volumeInfo":{"mean":-25.3,"max":-9.1},"tags":[]},{"filename":"6.mp4","duration":2.436,"volumeInfo":{"mean":-24,"max":-8.7},"tags":[]},{"filename":"7.mp4","duration":1.268,"volumeInfo":{"mean":-26,"max":-8.6},"tags":[]},{"filename":"8.mp4","duration":1.963,"volumeInfo":{"mean":-25.2,"max":-9.1},"tags":[]}],"audio":[{"filename":"0.mp3","duration":2.16,"volumeInfo":{"mean":-24.4,"max":-8.9},"tags":[]},{"filename":"1.mp3","duration":1.632,"volumeInfo":{"mean":-24.6,"max":-8.8},"tags":[]},{"filename":"2.mp3","duration":2.256,"volumeInfo":{"mean":-24.3,"max":-8.5},"tags":[]},{"filename":"3.mp3","duration":1.368,"volumeInfo":{"mean":-24.6,"max":-9.1},"tags":[]},{"filename":"4.mp3","duration":2.016,"volumeInfo":{"mean":-25.3,"max":-8.9},"tags":[]},{"filename":"5.mp3","duration":3,"volumeInfo":{"mean":-26.2,"max":-9.3},"tags":[]},{"filename":"6.mp3","duration":2.976,"volumeInfo":{"mean":-24.9,"max":-8.9},"tags":[]},{"filename":"7.mp3","duration":1.8,"volumeInfo":{"mean":-26.7,"max":-8.8},"tags":[]},{"filename":"8.mp3","duration":2.496,"volumeInfo":{"mean":-26,"max":-9.2},"tags":[]}],"frames":[]}
+{
+  "path": "media/big/9",
+  "words": [
+    "to her supper",
+    "and",
+    "left the night-light",
+    "together",
+    "in whispers",
+    "when Nana had gone away",
+    "burning on the mantelpiece",
+    "and",
+    "they had splendid games"
+  ],
+  "videos": [{
+    "filename": "0.mp4",
+    "duration": 1.622,
+    "volumeInfo": {
+      "mean": -23.2,
+      "max": -8.7
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp4",
+    "duration": 1.087,
+    "volumeInfo": {
+      "mean": -23.4,
+      "max": -8.5
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp4",
+    "duration": 1.729,
+    "volumeInfo": {
+      "mean": -23.6,
+      "max": -8.3
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp4",
+    "duration": 0.835,
+    "volumeInfo": {
+      "mean": -23.5,
+      "max": -8.9
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp4",
+    "duration": 1.485,
+    "volumeInfo": {
+      "mean": -26,
+      "max": -8.7
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp4",
+    "duration": 2.47,
+    "volumeInfo": {
+      "mean": -25.3,
+      "max": -9.1
+    },
+    "tags": []
+  }, {
+    "filename": "6.mp4",
+    "duration": 2.436,
+    "volumeInfo": {
+      "mean": -24,
+      "max": -8.7
+    },
+    "tags": []
+  }, {
+    "filename": "7.mp4",
+    "duration": 1.268,
+    "volumeInfo": {
+      "mean": -26,
+      "max": -8.6
+    },
+    "tags": []
+  }, {
+    "filename": "8.mp4",
+    "duration": 1.963,
+    "volumeInfo": {
+      "mean": -25.2,
+      "max": -9.1
+    },
+    "tags": []
+  }],
+  "audio": [{
+    "filename": "0.mp3",
+    "duration": 2.16,
+    "volumeInfo": {
+      "mean": -24.4,
+      "max": -8.9
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp3",
+    "duration": 1.632,
+    "volumeInfo": {
+      "mean": -24.6,
+      "max": -8.8
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp3",
+    "duration": 2.256,
+    "volumeInfo": {
+      "mean": -24.3,
+      "max": -8.5
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp3",
+    "duration": 1.368,
+    "volumeInfo": {
+      "mean": -24.6,
+      "max": -9.1
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp3",
+    "duration": 2.016,
+    "volumeInfo": {
+      "mean": -25.3,
+      "max": -8.9
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp3",
+    "duration": 3,
+    "volumeInfo": {
+      "mean": -26.2,
+      "max": -9.3
+    },
+    "tags": []
+  }, {
+    "filename": "6.mp3",
+    "duration": 2.976,
+    "volumeInfo": {
+      "mean": -24.9,
+      "max": -8.9
+    },
+    "tags": []
+  }, {
+    "filename": "7.mp3",
+    "duration": 1.8,
+    "volumeInfo": {
+      "mean": -26.7,
+      "max": -8.8
+    },
+    "tags": []
+  }, {
+    "filename": "8.mp3",
+    "duration": 2.496,
+    "volumeInfo": {
+      "mean": -26,
+      "max": -9.2
+    },
+    "tags": []
+  }],
+  "frames": []
+}

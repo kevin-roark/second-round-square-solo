@@ -1,1 +1,178 @@
-{"path":"media/big/10","videos":[{"filename":"0.mp4","duration":2.338,"volumeInfo":{"mean":-23,"max":-3.2},"tags":[]},{"filename":"1.mp4","duration":2.97,"volumeInfo":{"mean":-22.9,"max":-4.4},"tags":[]},{"filename":"2.mp4","duration":2.636,"volumeInfo":{"mean":-21,"max":-4.8},"tags":[]},{"filename":"3.mp4","duration":4.505,"volumeInfo":{"mean":-23.3,"max":-6.5},"tags":[]},{"filename":"4.mp4","duration":2.97,"volumeInfo":{"mean":-24.1,"max":-5.3},"tags":[]},{"filename":"5.mp4","duration":4.221,"volumeInfo":{"mean":-22.1,"max":-4.4},"tags":[]},{"filename":"6.mp4","duration":3.946,"volumeInfo":{"mean":-21.1,"max":-4.7},"tags":[]},{"filename":"7.mp4","duration":3.304,"volumeInfo":{"mean":-19.7,"max":-4.3},"tags":[]},{"filename":"8.mp4","duration":3.379,"volumeInfo":{"mean":-21.4,"max":-5.1},"tags":[]},{"filename":"9.mp4","duration":3.204,"volumeInfo":{"mean":-21.6,"max":-4.9},"tags":[]}],"audio":[{"filename":"0.mp3","duration":2.88,"volumeInfo":{"mean":-23.8,"max":-4.1},"tags":[]},{"filename":"1.mp3","duration":3.504,"volumeInfo":{"mean":-23.1,"max":-4.6},"tags":[]},{"filename":"2.mp3","duration":3.168,"volumeInfo":{"mean":-21.8,"max":-5.2},"tags":[]},{"filename":"3.mp3","duration":5.04,"volumeInfo":{"mean":-23.9,"max":-6.6},"tags":[]},{"filename":"4.mp3","duration":3.504,"volumeInfo":{"mean":-24.8,"max":-5.5},"tags":[]},{"filename":"5.mp3","duration":4.752,"volumeInfo":{"mean":-22.7,"max":-4.7},"tags":[]},{"filename":"6.mp3","duration":4.488,"volumeInfo":{"mean":-21.8,"max":-5},"tags":[]},{"filename":"7.mp3","duration":3.84,"volumeInfo":{"mean":-20.3,"max":-4.4},"tags":[]},{"filename":"8.mp3","duration":3.912,"volumeInfo":{"mean":-22.1,"max":-5.3},"tags":[]},{"filename":"9.mp3","duration":3.48,"volumeInfo":{"mean":-22.1,"max":-5.1},"tags":[]}],"frames":[]}
+{
+  "path": "media/big/10",
+  "words": [
+    "a clap with a clang",
+    "a fit name with an action open",
+    "as claque repose",
+    "see leave gloss or a dark place",
+    "in the region of the glottic wheat",
+    "upon the angle between glide bomb",
+    "a glaze motion without pass powers",
+    "meat in hue or of low",
+    "wanting dull as in smoothness",
+    "model slopes globose"
+  ],
+  "videos": [{
+    "filename": "0.mp4",
+    "duration": 2.338,
+    "volumeInfo": {
+      "mean": -23,
+      "max": -3.2
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp4",
+    "duration": 2.97,
+    "volumeInfo": {
+      "mean": -22.9,
+      "max": -4.4
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp4",
+    "duration": 2.636,
+    "volumeInfo": {
+      "mean": -21,
+      "max": -4.8
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp4",
+    "duration": 4.505,
+    "volumeInfo": {
+      "mean": -23.3,
+      "max": -6.5
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp4",
+    "duration": 2.97,
+    "volumeInfo": {
+      "mean": -24.1,
+      "max": -5.3
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp4",
+    "duration": 4.221,
+    "volumeInfo": {
+      "mean": -22.1,
+      "max": -4.4
+    },
+    "tags": []
+  }, {
+    "filename": "6.mp4",
+    "duration": 3.946,
+    "volumeInfo": {
+      "mean": -21.1,
+      "max": -4.7
+    },
+    "tags": []
+  }, {
+    "filename": "7.mp4",
+    "duration": 3.304,
+    "volumeInfo": {
+      "mean": -19.7,
+      "max": -4.3
+    },
+    "tags": []
+  }, {
+    "filename": "8.mp4",
+    "duration": 3.379,
+    "volumeInfo": {
+      "mean": -21.4,
+      "max": -5.1
+    },
+    "tags": []
+  }, {
+    "filename": "9.mp4",
+    "duration": 3.204,
+    "volumeInfo": {
+      "mean": -21.6,
+      "max": -4.9
+    },
+    "tags": []
+  }],
+  "audio": [{
+    "filename": "0.mp3",
+    "duration": 2.88,
+    "volumeInfo": {
+      "mean": -23.8,
+      "max": -4.1
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp3",
+    "duration": 3.504,
+    "volumeInfo": {
+      "mean": -23.1,
+      "max": -4.6
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp3",
+    "duration": 3.168,
+    "volumeInfo": {
+      "mean": -21.8,
+      "max": -5.2
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp3",
+    "duration": 5.04,
+    "volumeInfo": {
+      "mean": -23.9,
+      "max": -6.6
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp3",
+    "duration": 3.504,
+    "volumeInfo": {
+      "mean": -24.8,
+      "max": -5.5
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp3",
+    "duration": 4.752,
+    "volumeInfo": {
+      "mean": -22.7,
+      "max": -4.7
+    },
+    "tags": []
+  }, {
+    "filename": "6.mp3",
+    "duration": 4.488,
+    "volumeInfo": {
+      "mean": -21.8,
+      "max": -5
+    },
+    "tags": []
+  }, {
+    "filename": "7.mp3",
+    "duration": 3.84,
+    "volumeInfo": {
+      "mean": -20.3,
+      "max": -4.4
+    },
+    "tags": []
+  }, {
+    "filename": "8.mp3",
+    "duration": 3.912,
+    "volumeInfo": {
+      "mean": -22.1,
+      "max": -5.3
+    },
+    "tags": []
+  }, {
+    "filename": "9.mp3",
+    "duration": 3.48,
+    "volumeInfo": {
+      "mean": -22.1,
+      "max": -5.1
+    },
+    "tags": []
+  }],
+  "frames": []
+}

@@ -3940,6 +3940,28 @@ module.exports = function (mediaConfig) {
   var frampton = require('../frampton/dist/web-frampton');
   var Combinatorics = require('js-combinatorics');
 
+  var indices = [];
+  for (var i = 0; i < mediaConfig.videos.length; i++) {
+    indices.push(i);
+  }
+
+  var indexPermutation = Combinatorics.permutation(indices);
+  var currentPermutationIndex = 0;
+
+  var currentWordEl = document.createElement('div');
+  currentWordEl.className = 'current-word';
+  document.body.appendChild(currentWordEl);
+
+  var counterEl = document.createElement('div');
+  counterEl.className = 'permutation-counter';
+  document.body.appendChild(counterEl);
+
+  var symbolCanvas = document.createElement('canvas');
+  symbolCanvas.width = window.innerWidth;
+  symbolCanvas.height = 35;
+  symbolCanvas.className = 'video-symbol-canvas';
+  document.body.appendChild(symbolCanvas);
+
   var renderer = new frampton.WebRenderer({
     mediaConfig: mediaConfig,
     videoSourceMaker: function(filename) {
@@ -3947,25 +3969,35 @@ module.exports = function (mediaConfig) {
     }
   });
 
-  var videoPermutation = Combinatorics.permutation(mediaConfig.videos);
-
-  scheuduleOrdering(videoPermutation.next(), 2500);
+  scheuduleOrdering(indexPermutation.next(), 2500);
 
   function scheuduleOrdering(ordering, delay) {
     var segments = [];
 
-    ordering.forEach(function(video) {
+    ordering.forEach(function(index) {
+      var video = mediaConfig.videos[index];
       var segment = new frampton.VideoSegment(video);
+
+      segment.onStart = function() {
+        currentWordEl.textContent = mediaConfig.words[index];
+        updateCanvas(index);
+      };
+
       segments.push(segment);
     });
 
     var sequencedSegment = new frampton.SequencedSegment({
       segments: segments,
       onStart: function() {
-        var nextOrdering = videoPermutation.next();
+        counterEl.textContent = (currentPermutationIndex+1) + ' / ' + indexPermutation.length;
+
+        var nextOrdering = indexPermutation.next();
+        currentPermutationIndex += 1;
+
         if (!nextOrdering) {
-          videoPermutation = Combinatorics.permutation(mediaConfig.videos);
-          nextOrdering = videoPermutation.next();
+          indexPermutation = Combinatorics.permutation(indices);
+          nextOrdering = indexPermutation.next();
+          currentPermutationIndex = 0;
         }
 
         scheuduleOrdering(nextOrdering, sequencedSegment.msDuration());
@@ -3974,10 +4006,122 @@ module.exports = function (mediaConfig) {
 
     renderer.scheduleSegmentRender(sequencedSegment, delay);
   }
+
+  function updateCanvas(index) {
+    var ctx = symbolCanvas.getContext('2d');
+    ctx.clearRect(0, 0, symbolCanvas.width, symbolCanvas.height);
+
+    for (var i = 0; i < indices.length; i++) {
+      drawShape(indices.length, 15 + 40 * i, 20, 15, i === index);
+    }
+
+    function drawShape(numberOfSides, x, y, size, highlight) {
+      ctx.beginPath();
+      ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+
+      for (var i = 1; i <= numberOfSides; i += 1) {
+        ctx.lineTo(x + size * Math.cos(i * 2 * Math.PI / numberOfSides), y + size * Math.sin(i * 2 * Math.PI / numberOfSides));
+      }
+
+      ctx.strokeStyle = "#fff";
+      ctx.lineWidth = 2;
+
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+      ctx.shadowBlur = 3;
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
+
+      if (highlight) {
+        ctx.fillStyle = ctx.shadowColor = randomBrightColor();
+        ctx.fill();
+      }
+      else {
+        ctx.stroke();
+      }
+    }
+
+    function randomBrightColor() {
+      var key = Math.floor(Math.random() * 6);
+
+      if (key === 0)
+        return "rgb(" + "0,255," + v() + ")";
+      else if (key === 1)
+        return "rgb(" + "0," + v() + ",255)";
+      else if (key === 2)
+        return "rgb(" + "255, 0," + v() + ")";
+      else if (key === 3)
+        return "rgb(" + "255," + v() + ",0)";
+      else if (key === 4)
+        return "rgb(" + v() + ",255,0)";
+      else
+        return "rgb(" + v() + ",0,255)";
+
+      function v() {
+        return Math.floor(Math.random() * 256);
+      }
+    }
+  }
 };
 
 },{"../frampton/dist/web-frampton":22,"js-combinatorics":25}],27:[function(require,module,exports){
-module.exports={"path":"media/big/3","videos":[{"filename":"0.mp4","duration":0.822,"volumeInfo":{"mean":-29.3,"max":-10.9},"tags":[]},{"filename":"1.mp4","duration":1.037,"volumeInfo":{"mean":-31.8,"max":-13},"tags":[]},{"filename":"2.mp4","duration":1.02,"volumeInfo":{"mean":-36,"max":-18.9},"tags":[]}],"audio":[{"filename":"0.mp3","duration":1.368,"volumeInfo":{"mean":-31.1,"max":-11.1},"tags":[]},{"filename":"1.mp3","duration":1.584,"volumeInfo":{"mean":-33.2,"max":-13.3},"tags":[]},{"filename":"2.mp3","duration":1.32,"volumeInfo":{"mean":-36.9,"max":-19.6},"tags":[]}],"frames":[]}
+module.exports={
+  "path": "media/big/3",
+  "words": [
+    "willies", "really", "weary"
+  ],
+  "videos": [{
+    "filename": "0.mp4",
+    "duration": 0.822,
+    "volumeInfo": {
+      "mean": -29.3,
+      "max": -10.9
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp4",
+    "duration": 1.037,
+    "volumeInfo": {
+      "mean": -31.8,
+      "max": -13
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp4",
+    "duration": 1.02,
+    "volumeInfo": {
+      "mean": -36,
+      "max": -18.9
+    },
+    "tags": []
+  }],
+  "audio": [{
+    "filename": "0.mp3",
+    "duration": 1.368,
+    "volumeInfo": {
+      "mean": -31.1,
+      "max": -11.1
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp3",
+    "duration": 1.584,
+    "volumeInfo": {
+      "mean": -33.2,
+      "max": -13.3
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp3",
+    "duration": 1.32,
+    "volumeInfo": {
+      "mean": -36.9,
+      "max": -19.6
+    },
+    "tags": []
+  }],
+  "frames": []
+}
+
 },{}],28:[function(require,module,exports){
 
 (function() {

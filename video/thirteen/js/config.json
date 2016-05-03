@@ -1,1 +1,229 @@
-{"path":"media/big/13","videos":[{"filename":"0.mp4","duration":2.172,"volumeInfo":{"mean":-29.8,"max":-8.4},"tags":[]},{"filename":"1.mp4","duration":2.57,"volumeInfo":{"mean":-32.2,"max":-11},"tags":[]},{"filename":"2.mp4","duration":2.186,"volumeInfo":{"mean":-30.7,"max":-9.4},"tags":[]},{"filename":"3.mp4","duration":2.536,"volumeInfo":{"mean":-29.4,"max":-10},"tags":[]},{"filename":"4.mp4","duration":3.613,"volumeInfo":{"mean":-30.4,"max":-10.8},"tags":[]},{"filename":"5.mp4","duration":2.629,"volumeInfo":{"mean":-32,"max":-9.8},"tags":[]},{"filename":"6.mp4","duration":2.513,"volumeInfo":{"mean":-30.5,"max":-9.5},"tags":[]},{"filename":"7.mp4","duration":2.746,"volumeInfo":{"mean":-28.4,"max":-8.8},"tags":[]},{"filename":"8.mp4","duration":2.813,"volumeInfo":{"mean":-30,"max":-10.3},"tags":[]},{"filename":"9.mp4","duration":3.504,"volumeInfo":{"mean":-31.7,"max":-8.5},"tags":[]},{"filename":"10.mp4","duration":2.196,"volumeInfo":{"mean":-32.8,"max":-10.7},"tags":[]},{"filename":"11.mp4","duration":2.737,"volumeInfo":{"mean":-31.3,"max":-12.1},"tags":[]},{"filename":"12.mp4","duration":3.22,"volumeInfo":{"mean":-29.8,"max":-8.4},"tags":[]}],"audio":[{"filename":"0.mp3","duration":2.712,"volumeInfo":{"mean":-30.8,"max":-8.4},"tags":[]},{"filename":"1.mp3","duration":3.12,"volumeInfo":{"mean":-33.1,"max":-11.2},"tags":[]},{"filename":"10.mp3","duration":2.736,"volumeInfo":{"mean":-33.9,"max":-11.4},"tags":[]},{"filename":"11.mp3","duration":3.264,"volumeInfo":{"mean":-32.2,"max":-12.3},"tags":[]},{"filename":"12.mp3","duration":3.504,"volumeInfo":{"mean":-30.3,"max":-8.8},"tags":[]},{"filename":"2.mp3","duration":2.712,"volumeInfo":{"mean":-31.7,"max":-9.6},"tags":[]},{"filename":"3.mp3","duration":3.072,"volumeInfo":{"mean":-30.4,"max":-10.2},"tags":[]},{"filename":"4.mp3","duration":4.152,"volumeInfo":{"mean":-31.2,"max":-11.1},"tags":[]},{"filename":"5.mp3","duration":3.168,"volumeInfo":{"mean":-32.9,"max":-10.2},"tags":[]},{"filename":"6.mp3","duration":3.048,"volumeInfo":{"mean":-31.5,"max":-9.7},"tags":[]},{"filename":"7.mp3","duration":3.288,"volumeInfo":{"mean":-29.4,"max":-8.9},"tags":[]},{"filename":"8.mp3","duration":3.36,"volumeInfo":{"mean":-30.9,"max":-10.4},"tags":[]},{"filename":"9.mp3","duration":4.032,"volumeInfo":{"mean":-32.2,"max":-8.9},"tags":[]}],"frames":[]}
+{
+  "path": "media/big/13",
+  "words": [
+    "fan understudy fan",
+    "dot evasion tick",
+    "vane utter casting",
+    "arrow queen dice",
+    "core nine when deed",
+    "might am crimp",
+    "tack tawn append",
+    "tine board gasify",
+    "in stays iambs off",
+    "at adverse own not",
+    "ought numbers what",
+    "atone ray tip when",
+    "meant charge butte dine"
+  ],
+  "videos": [{
+    "filename": "0.mp4",
+    "duration": 2.172,
+    "volumeInfo": {
+      "mean": -29.8,
+      "max": -8.4
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp4",
+    "duration": 2.57,
+    "volumeInfo": {
+      "mean": -32.2,
+      "max": -11
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp4",
+    "duration": 2.186,
+    "volumeInfo": {
+      "mean": -30.7,
+      "max": -9.4
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp4",
+    "duration": 2.536,
+    "volumeInfo": {
+      "mean": -29.4,
+      "max": -10
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp4",
+    "duration": 3.613,
+    "volumeInfo": {
+      "mean": -30.4,
+      "max": -10.8
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp4",
+    "duration": 2.629,
+    "volumeInfo": {
+      "mean": -32,
+      "max": -9.8
+    },
+    "tags": []
+  }, {
+    "filename": "6.mp4",
+    "duration": 2.513,
+    "volumeInfo": {
+      "mean": -30.5,
+      "max": -9.5
+    },
+    "tags": []
+  }, {
+    "filename": "7.mp4",
+    "duration": 2.746,
+    "volumeInfo": {
+      "mean": -28.4,
+      "max": -8.8
+    },
+    "tags": []
+  }, {
+    "filename": "8.mp4",
+    "duration": 2.813,
+    "volumeInfo": {
+      "mean": -30,
+      "max": -10.3
+    },
+    "tags": []
+  }, {
+    "filename": "9.mp4",
+    "duration": 3.504,
+    "volumeInfo": {
+      "mean": -31.7,
+      "max": -8.5
+    },
+    "tags": []
+  }, {
+    "filename": "10.mp4",
+    "duration": 2.196,
+    "volumeInfo": {
+      "mean": -32.8,
+      "max": -10.7
+    },
+    "tags": []
+  }, {
+    "filename": "11.mp4",
+    "duration": 2.737,
+    "volumeInfo": {
+      "mean": -31.3,
+      "max": -12.1
+    },
+    "tags": []
+  }, {
+    "filename": "12.mp4",
+    "duration": 3.22,
+    "volumeInfo": {
+      "mean": -29.8,
+      "max": -8.4
+    },
+    "tags": []
+  }],
+  "audio": [{
+    "filename": "0.mp3",
+    "duration": 2.712,
+    "volumeInfo": {
+      "mean": -30.8,
+      "max": -8.4
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp3",
+    "duration": 3.12,
+    "volumeInfo": {
+      "mean": -33.1,
+      "max": -11.2
+    },
+    "tags": []
+  }, {
+    "filename": "10.mp3",
+    "duration": 2.736,
+    "volumeInfo": {
+      "mean": -33.9,
+      "max": -11.4
+    },
+    "tags": []
+  }, {
+    "filename": "11.mp3",
+    "duration": 3.264,
+    "volumeInfo": {
+      "mean": -32.2,
+      "max": -12.3
+    },
+    "tags": []
+  }, {
+    "filename": "12.mp3",
+    "duration": 3.504,
+    "volumeInfo": {
+      "mean": -30.3,
+      "max": -8.8
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp3",
+    "duration": 2.712,
+    "volumeInfo": {
+      "mean": -31.7,
+      "max": -9.6
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp3",
+    "duration": 3.072,
+    "volumeInfo": {
+      "mean": -30.4,
+      "max": -10.2
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp3",
+    "duration": 4.152,
+    "volumeInfo": {
+      "mean": -31.2,
+      "max": -11.1
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp3",
+    "duration": 3.168,
+    "volumeInfo": {
+      "mean": -32.9,
+      "max": -10.2
+    },
+    "tags": []
+  }, {
+    "filename": "6.mp3",
+    "duration": 3.048,
+    "volumeInfo": {
+      "mean": -31.5,
+      "max": -9.7
+    },
+    "tags": []
+  }, {
+    "filename": "7.mp3",
+    "duration": 3.288,
+    "volumeInfo": {
+      "mean": -29.4,
+      "max": -8.9
+    },
+    "tags": []
+  }, {
+    "filename": "8.mp3",
+    "duration": 3.36,
+    "volumeInfo": {
+      "mean": -30.9,
+      "max": -10.4
+    },
+    "tags": []
+  }, {
+    "filename": "9.mp3",
+    "duration": 4.032,
+    "volumeInfo": {
+      "mean": -32.2,
+      "max": -8.9
+    },
+    "tags": []
+  }],
+  "frames": []
+}

@@ -1,1 +1,110 @@
-{"path":"media/big/6","videos":[{"filename":"0.mp4","duration":0.905,"volumeInfo":{"mean":-25.7,"max":-11.3},"tags":[]},{"filename":"1.mp4","duration":0.637,"volumeInfo":{"mean":-27.5,"max":-12.1},"tags":[]},{"filename":"2.mp4","duration":0.929,"volumeInfo":{"mean":-25.9,"max":-9.1},"tags":[]},{"filename":"3.mp4","duration":1.146,"volumeInfo":{"mean":-25.1,"max":-9},"tags":[]},{"filename":"4.mp4","duration":1.263,"volumeInfo":{"mean":-26,"max":-9.2},"tags":[]},{"filename":"5.mp4","duration":1.154,"volumeInfo":{"mean":-28.2,"max":-12.1},"tags":[]}],"audio":[{"filename":"0.mp3","duration":1.44,"volumeInfo":{"mean":-27.2,"max":-11.5},"tags":[]},{"filename":"1.mp3","duration":1.176,"volumeInfo":{"mean":-26.2,"max":-9.3},"tags":[]},{"filename":"2.mp3","duration":1.464,"volumeInfo":{"mean":-26.4,"max":-9.3},"tags":[]},{"filename":"3.mp3","duration":1.68,"volumeInfo":{"mean":-26.5,"max":-9},"tags":[]},{"filename":"4.mp3","duration":1.8,"volumeInfo":{"mean":-26.2,"max":-9},"tags":[]},{"filename":"5.mp3","duration":1.44,"volumeInfo":{"mean":-28.5,"max":-12.5},"tags":[]}],"frames":[]}
+{
+  "path": "media/big/6",
+  "words": [
+    "from sores",
+    "and",
+    "on my head",
+    "as a boy",
+    "on my legs",
+    "I suffered terribly"
+  ],
+  "videos": [{
+    "filename": "0.mp4",
+    "duration": 0.905,
+    "volumeInfo": {
+      "mean": -25.7,
+      "max": -11.3
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp4",
+    "duration": 0.637,
+    "volumeInfo": {
+      "mean": -27.5,
+      "max": -12.1
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp4",
+    "duration": 0.929,
+    "volumeInfo": {
+      "mean": -25.9,
+      "max": -9.1
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp4",
+    "duration": 1.146,
+    "volumeInfo": {
+      "mean": -25.1,
+      "max": -9
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp4",
+    "duration": 1.263,
+    "volumeInfo": {
+      "mean": -26,
+      "max": -9.2
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp4",
+    "duration": 1.154,
+    "volumeInfo": {
+      "mean": -28.2,
+      "max": -12.1
+    },
+    "tags": []
+  }],
+  "audio": [{
+    "filename": "0.mp3",
+    "duration": 1.44,
+    "volumeInfo": {
+      "mean": -27.2,
+      "max": -11.5
+    },
+    "tags": []
+  }, {
+    "filename": "1.mp3",
+    "duration": 1.176,
+    "volumeInfo": {
+      "mean": -26.2,
+      "max": -9.3
+    },
+    "tags": []
+  }, {
+    "filename": "2.mp3",
+    "duration": 1.464,
+    "volumeInfo": {
+      "mean": -26.4,
+      "max": -9.3
+    },
+    "tags": []
+  }, {
+    "filename": "3.mp3",
+    "duration": 1.68,
+    "volumeInfo": {
+      "mean": -26.5,
+      "max": -9
+    },
+    "tags": []
+  }, {
+    "filename": "4.mp3",
+    "duration": 1.8,
+    "volumeInfo": {
+      "mean": -26.2,
+      "max": -9
+    },
+    "tags": []
+  }, {
+    "filename": "5.mp3",
+    "duration": 1.44,
+    "volumeInfo": {
+      "mean": -28.5,
+      "max": -12.5
+    },
+    "tags": []
+  }],
+  "frames": []
+}
