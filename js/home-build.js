@@ -86,6 +86,10 @@
       };
       row.appendChild(soundButton);
 
+      var permutationCounter = document.createElement('div');
+      permutationCounter.className = 'video-permutation-count';
+      row.appendChild(permutationCounter);
+
       var videoContainer = document.createElement('a');
       videoContainer.className = 'video-thumbnail-container';
       videoContainer.href = '/video/' + videoDatum.title;
@@ -107,9 +111,13 @@
       function playPermutedVideos() {
         var permutations = Combinatorics.permutation(videos);
         var firstPermutation = permutations.next();
+        var permutationIdx = 0;
+
         playPermutation(firstPermutation);
 
         function playPermutation(permutation) {
+          permutationCounter.textContent = (permutationIdx + 1) + '/' + permutations.length;
+
           var idx = 0;
           play();
 
@@ -123,6 +131,7 @@
               else {
                 var nextPermutation = permutations.next();
                 if (nextPermutation) {
+                  permutationIdx += 1;
                   playPermutation(nextPermutation);
                 }
                 else {

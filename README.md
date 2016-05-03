@@ -7,4 +7,3 @@ permuted phrase-and-poem films
 * add audio fades
 * make home page more performant
 * fix white flash
-* add permutation counter to home page

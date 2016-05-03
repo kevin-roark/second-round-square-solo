@@ -53,12 +53,13 @@ html, body {
 .art-container {
   opacity: 0;
   transition: all 1s;
+  padding-bottom: 60px;
 }
 
 .video-row {
-  margin: 7px 5px;
-  overflow-y: hidden;
+  margin: 7px 5px 14px 5px;
   white-space: nowrap;
+  position: relative;
 }
 
   .video-sound-button {
@@ -70,10 +71,20 @@ html, body {
     font-family: 'Roboto Mono', monospace;
     font-size: 17px;
     text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+    padding-top: 10px;
   }
     .video-sound-button:hover, .video-sound-button:focus {
       text-decoration: underline;
     }
+
+  .video-permutation-count {
+    position: absolute;
+    top: 105px; left: 75px;
+    text-align: right;
+    font-family: 'Roboto Mono', Menlo, monospace;
+    font-size: 12px;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.25);
+  }
 
   .video-thumbnail-container {
     display: inline-block;
