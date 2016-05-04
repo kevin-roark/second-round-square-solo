@@ -3939,6 +3939,7 @@ TWEEN.Interpolation = {
 module.exports = function (mediaConfig) {
   var frampton = require('../frampton/dist/web-frampton');
   var Combinatorics = require('js-combinatorics');
+  var finder = new frampton.MediaFinder(mediaConfig);
 
   var indices = [];
   for (var i = 0; i < mediaConfig.videos.length; i++) {
@@ -3969,6 +3970,7 @@ module.exports = function (mediaConfig) {
       return '/' + mediaConfig.path + '/' +  filename;
     }
   });
+  renderer.preferHTMLAudio = true;
 
   scheuduleOrdering(indexPermutation.next(), 2500);
 
@@ -3978,6 +3980,11 @@ module.exports = function (mediaConfig) {
     ordering.forEach(function(index) {
       var video = mediaConfig.videos[index];
       var segment = new frampton.VideoSegment(video);
+
+      var audio = finder.findAudioHandleForVideo(video);
+      if (audio) {
+        segment.setAudioHandleMedia(audio).setAudioHandleFadeDuration(0.15).setAudioHandleStartTimeOffset(0.1);
+      }
 
       segment.onStart = function() {
         currentWordEl.textContent = mediaConfig.words[index];
