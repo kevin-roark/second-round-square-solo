@@ -49,7 +49,7 @@ body {
     text-decoration: underline;
   }
 
-.permutation-counter, .current-word, .video-symbol-canvas {
+.permutation-counter, .current-word, .video-symbol-canvas, .time-counter {
   position: fixed;
   color: white;
   font-family: Roboto Mono, Menlo, Courier New, monospace;
@@ -58,6 +58,11 @@ body {
 
   -webkit-user-select: none;
   user-select: none;
+}
+
+.time-counter {
+  right: 10px; top: 6px;
+  font-size: 14px;
 }
 
 .permutation-counter {
