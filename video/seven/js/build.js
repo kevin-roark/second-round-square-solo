@@ -3947,6 +3947,7 @@ module.exports = function (mediaConfig) {
 
   var indexPermutation = Combinatorics.permutation(indices);
   var currentPermutationIndex = 0;
+  var numberOfPermutations = indexPermutation.length;
 
   var currentWordEl = document.createElement('div');
   currentWordEl.className = 'current-word';
@@ -3958,7 +3959,7 @@ module.exports = function (mediaConfig) {
 
   var symbolCanvas = document.createElement('canvas');
   symbolCanvas.width = window.innerWidth;
-  symbolCanvas.height = 35;
+  symbolCanvas.height = 38;
   symbolCanvas.className = 'video-symbol-canvas';
   document.body.appendChild(symbolCanvas);
 
@@ -3989,7 +3990,7 @@ module.exports = function (mediaConfig) {
     var sequencedSegment = new frampton.SequencedSegment({
       segments: segments,
       onStart: function() {
-        counterEl.textContent = (currentPermutationIndex+1) + ' / ' + indexPermutation.length;
+        counterEl.textContent = (currentPermutationIndex+1) + ' / ' + numberOfPermutations;
 
         var nextOrdering = indexPermutation.next();
         currentPermutationIndex += 1;
@@ -4012,7 +4013,7 @@ module.exports = function (mediaConfig) {
     ctx.clearRect(0, 0, symbolCanvas.width, symbolCanvas.height);
 
     for (var i = 0; i < indices.length; i++) {
-      drawShape(indices.length, 15 + 40 * i, 20, 15, i === index);
+      drawShape(indices.length, 18 + 40 * i, 20, 15, i === index);
     }
 
     function drawShape(numberOfSides, x, y, size, highlight) {
