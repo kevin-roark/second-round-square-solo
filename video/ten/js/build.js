@@ -3949,14 +3949,19 @@ module.exports = function (mediaConfig) {
   var indexPermutation = Combinatorics.permutation(indices);
   var currentPermutationIndex = 0;
   var numberOfPermutations = indexPermutation.length;
+  var timeInterval;
 
   var currentWordEl = document.createElement('div');
   currentWordEl.className = 'current-word';
   document.body.appendChild(currentWordEl);
 
-  var counterEl = document.createElement('div');
-  counterEl.className = 'permutation-counter';
-  document.body.appendChild(counterEl);
+  var timeCounterEl = document.createElement('div');
+  timeCounterEl.className = 'time-counter';
+  document.body.appendChild(timeCounterEl);
+
+  var permutationCounterEl = document.createElement('div');
+  permutationCounterEl.className = 'permutation-counter';
+  document.body.appendChild(permutationCounterEl);
 
   var symbolCanvas = document.createElement('canvas');
   symbolCanvas.width = window.innerWidth;
@@ -3972,7 +3977,7 @@ module.exports = function (mediaConfig) {
   });
   renderer.preferHTMLAudio = true;
 
-  scheuduleOrdering(indexPermutation.next(), 2500);
+  scheuduleOrdering(indexPermutation.next(), 3000);
 
   function scheuduleOrdering(ordering, delay) {
     var segments = [];
@@ -3997,7 +4002,11 @@ module.exports = function (mediaConfig) {
     var sequencedSegment = new frampton.SequencedSegment({
       segments: segments,
       onStart: function() {
-        counterEl.textContent = (currentPermutationIndex+1) + ' / ' + numberOfPermutations;
+        if (currentPermutationIndex === 0) {
+          startTimeCounter();
+        }
+
+        permutationCounterEl.textContent = (currentPermutationIndex+1) + ' / ' + numberOfPermutations;
 
         var nextOrdering = indexPermutation.next();
         currentPermutationIndex += 1;
@@ -4013,6 +4022,37 @@ module.exports = function (mediaConfig) {
     });
 
     renderer.scheduleSegmentRender(sequencedSegment, delay);
+  }
+
+  function startTimeCounter() {
+    clearInterval(timeInterval);
+
+    var exhaustionDuration = 0;
+    mediaConfig.videos.forEach(function(video) {
+      exhaustionDuration += video.duration;
+    });
+    exhaustionDuration *= numberOfPermutations;
+
+    var start = new Date();
+
+    timeInterval = setInterval(function() {
+      var now = new Date();
+      var delta = (now - start) / 1000;
+      var remaining = exhaustionDuration - delta;
+
+      var years = Math.floor(remaining / (365 * 24 * 3600));
+      var days = Math.floor(remaining / (24 * 3600) - years * 365);
+      var hours = Math.floor(remaining / 3600 - days * 24);
+      var seconds = (remaining - hours * 3600).toFixed(1);
+
+      var str = 'CONTENT REMAINING: ';
+      if (years > 0) str += years + (years === 1 ? ' YEAR ' : ' YEARS ');
+      if (days > 0) str += days + (days === 1 ? ' DAY ' : ' DAYS ');
+      if (hours > 0) str += hours + (hours === 1 ? ' HOUR ' : ' HOURS ');
+      str += seconds + ' SECONDS ';
+
+      timeCounterEl.textContent = str;
+    }, 100);
   }
 
   function updateCanvas(index) {
