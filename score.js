@@ -96,6 +96,11 @@ module.exports = function (mediaConfig) {
     });
     exhaustionDuration *= numberOfPermutations;
 
+    var secondsPerMinute = 60;
+    var secondsPerHour = secondsPerMinute * 60;
+    var secondsPerDay = secondsPerHour * 24;
+    var secondsPerYear = 365 * secondsPerDay;
+
     var start = new Date();
 
     timeInterval = setInterval(function() {
@@ -103,15 +108,17 @@ module.exports = function (mediaConfig) {
       var delta = (now - start) / 1000;
       var remaining = exhaustionDuration - delta;
 
-      var years = Math.floor(remaining / (365 * 24 * 3600));
-      var days = Math.floor(remaining / (24 * 3600) - years * 365);
-      var hours = Math.floor(remaining / 3600 - days * 24);
-      var seconds = (remaining - hours * 3600).toFixed(1);
+      var years = Math.floor(remaining / secondsPerYear);
+      var days = Math.floor((remaining - secondsPerYear * years) / secondsPerDay);
+      var hours = Math.floor((remaining - secondsPerYear * years - secondsPerDay * days) / secondsPerHour);
+      var minutes = Math.floor((remaining - secondsPerYear * years - secondsPerDay * days - secondsPerHour * hours) / secondsPerMinute);
+      var seconds = (remaining - secondsPerYear * years - secondsPerDay * days - secondsPerHour * hours - secondsPerMinute * minutes).toFixed(1);
 
-      var str = 'CONTENT REMAINING: ';
+      var str = 'REMAINING: ';
       if (years > 0) str += years + (years === 1 ? ' YEAR ' : ' YEARS ');
       if (days > 0) str += days + (days === 1 ? ' DAY ' : ' DAYS ');
       if (hours > 0) str += hours + (hours === 1 ? ' HOUR ' : ' HOURS ');
+      if (minutes > 0) str += minutes + (minutes === 1 ? ' MINUTE ' : ' MINUTES ');
       str += seconds + ' SECONDS ';
 
       timeCounterEl.textContent = str;
