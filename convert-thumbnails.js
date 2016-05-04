@@ -31,7 +31,7 @@ function convert(file, callback) {
 
   var command =
     'ffmpeg -y -i ' + file +
-    ' -filter_complex "crop=1440:1080:240:0,scale=320:240"' +
+    ' -filter_complex "crop=1440:1080:240:0,scale=128:96"' +
     ' media/thumbnails/' + outputFile;
 
   console.log('running ' + command + ' .... ');
