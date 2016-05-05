@@ -3941,6 +3941,8 @@ module.exports = function (mediaConfig) {
   var Combinatorics = require('js-combinatorics');
   var finder = new frampton.MediaFinder(mediaConfig);
 
+  var boostAudioForScore = mediaConfig.path.indexOf('14') >= 0 || mediaConfig.path.indexOf('13') >= 0;
+
   var indices = [];
   for (var i = 0; i < mediaConfig.videos.length; i++) {
     indices.push(i);
@@ -3984,9 +3986,14 @@ module.exports = function (mediaConfig) {
 
     ordering.forEach(function(index) {
       var video = mediaConfig.videos[index];
+      var audio = finder.findAudioHandleForVideo(video);
+
+      if (audio && boostAudioForScore) {
+        video.audioHandleSegmentOptions = {volume: 1.0};
+      }
+
       var segment = new frampton.VideoSegment(video);
 
-      var audio = finder.findAudioHandleForVideo(video);
       if (audio) {
         segment.setAudioHandleMedia(audio).setAudioHandleFadeDuration(0.15).setAudioHandleStartTimeOffset(0.1);
       }
