@@ -4,4 +4,4 @@ permuted phrase-and-poem films
 
 ## TODO
 
-* make home page more performant
+* keys to jump to next video, next permutation
