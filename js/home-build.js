@@ -8,7 +8,7 @@
 
   var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
   if (isChrome) {
-    setTimeout(videos, 2000);
+    setTimeout(videos, 1500);
   }
   else {
     var notChromeEl = document.createElement('div');
@@ -43,7 +43,7 @@
   function videos() {
     var baseURL = 'media/thumbnails/';
     var container = document.querySelector('.art-container');
-    var containerDelay = 3000;
+    var containerDelay = 2500;
 
     var videoData = [
       {title: 'three', count: 3, mediaBase: '3/'},
@@ -95,21 +95,31 @@
       videoContainer.href = '/video/' + videoDatum.title;
       row.appendChild(videoContainer);
 
-      var videos = [];
-      videoDatum.media.forEach(function(videoPath) {
-        var video = document.createElement('video');
-        video.className = 'video-thumbnail';
-        video.src = videoPath;
-        videoContainer.appendChild(video);
+      var clickMe = document.createElement('div');
+      clickMe.className = 'click-me';
+      clickMe.textContent = 'CLICK ME -> VIEW ME';
+      videoContainer.appendChild(clickMe);
 
-        videos.push(video);
+      var thumbnails = [], indices = [];
+      videoDatum.media.forEach(function(videoPath, idx) {
+        var thumbnail = document.createElement('div');
+        thumbnail.className = 'video-thumbnail';
+        videoContainer.appendChild(thumbnail);
+        thumbnails.push(thumbnail);
+
+        var imagePath = videoPath.replace('mp4', 'jpg');
+        var image = document.createElement('img');
+        image.src = imagePath;
+        thumbnail.appendChild(image);
+
+        indices.push(idx);
       });
 
       updateSoundState();
       setTimeout(playPermutedVideos, containerDelay + 1466 * (videoDatum.count - 1));
 
       function playPermutedVideos() {
-        var permutations = Combinatorics.permutation(videos);
+        var permutations = Combinatorics.permutation(indices);
         var firstPermutation = permutations.next();
         var permutationIdx = 0;
 
@@ -122,8 +132,17 @@
           play();
 
           function play() {
-            var video = permutation[idx];
+            var videoIndex = permutation[idx];
+
+            var video = document.createElement('video');
+            video.volume = isMuted ? 0 : 1;
+            video.src = videoDatum.media[videoIndex];
+            thumbnails[videoIndex].appendChild(video);
+
             video.onended = function() {
+              video.src = '';
+              video.parentNode.removeChild(video);
+
               idx += 1;
               if (idx < permutation.length) {
                 play();
@@ -148,9 +167,10 @@
       function updateSoundState() {
         soundButton.innerText = isMuted ? 'sound' : 'mute';
 
-        videos.forEach(function(video) {
-          video.volume = isMuted ? 0 : 1;
-        });
+        var vids = document.querySelectorAll('video');
+        for (var i = 0; i < vids.length; i++) {
+          vids[i].volume = isMuted ? 0 : 1;
+        }
       }
     }
 

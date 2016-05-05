@@ -9,6 +9,7 @@ html, body {
   top: 10px; right: 15px;
   max-width: 630px;
   color: rgb(44, 44, 44);
+  z-index: 1;
 }
 
   .art-title {
@@ -23,17 +24,35 @@ html, body {
     font-size: 32px;
   }
 
+  .art-instructions {
+    float: right;
+    margin-top: 40px;
+    margin-right: 15px;
+    padding: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 255, 0.4);
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 255, 0.25);
+  }
+
   .about-artist {
     float: right;
     margin-top: 40px;
-    margin-right: 25px;
+    margin-right: 15px;
+    padding: 4px;
     font-family: 'Times New Roman', serif;
     font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+    background-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 0px 0px 20px 5px rgba(255, 0, 0, 0.25);
   }
     .about-artist a {
       color: inherit;
-      text-decoration: none;
-      text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+      text-decoration: underline;
     }
       .about-artist a:hover, .about-artist a:focus {
         text-decoration: underline;
@@ -42,24 +61,34 @@ html, body {
   .social {
     float: right;
     margin-top: 40px;
-    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 255, 0, 0.4);
+    box-shadow: 0px 0px 20px 5px rgba(0, 255, 0, 0.25);
   }
     .social-button {
       padding: 5px;
       text-align: right;
     }
 
-
 .art-container {
   opacity: 0;
   transition: all 1s;
-  padding-bottom: 60px;
+  padding-bottom: 100px;
 }
 
 .video-row {
   margin: 7px 5px 14px 5px;
   white-space: nowrap;
   position: relative;
+}
+
+.click-me {
+  display: none;
+  position: fixed; bottom: 5px; right: 10px;
+  z-index: 1;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 60px;
+  color: rgb(255, 0, 0);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
 }
 
   .video-sound-button {
@@ -90,18 +119,33 @@ html, body {
     display: inline-block;
     transition: all 400ms;
   }
-    .video-thumbnail-container:hover video, .video-thumbnail-container:focus video {
+    .video-thumbnail-container:hover .video-thumbnail img , .video-thumbnail-container:focus .video-thumbnail img {
       box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
       transform: scale(1.02) skewX(-2deg) skewY(1deg);
     }
 
+    .video-thumbnail-container:hover .click-me , .video-thumbnail-container:focus .click-me {
+      display: block;
+    }
+
   .video-thumbnail {
+    position: relative;
     display: inline-block;
     vertical-align: middle;
     width: 125px;
     margin: 10px 0 10px 15px;
     transition: transform 400ms;
   }
+
+    .video-thumbnail img {
+      width: 100%;
+    }
+
+    .video-thumbnail video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+    }
 
 .not-chrome-message {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -132,7 +176,7 @@ only screen and (                min-resolution: 2dppx)  and (max-width: 1120px)
     margin-left: 20px;
     margin-top: 10px;
   }
-  .about-artist, .social {
+  .about-artist, .social, .art-instructions {
     float: inherit;
     display: inline-block;
     margin-right: 0;
